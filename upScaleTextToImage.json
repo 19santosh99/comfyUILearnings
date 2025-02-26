@@ -1,0 +1,734 @@
+{
+  "last_node_id": 22,
+  "last_link_id": 30,
+  "nodes": [
+    {
+      "id": 13,
+      "type": "Reroute",
+      "pos": [
+        286,
+        447.51666259765625
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "CLIP",
+          "links": [
+            12,
+            13
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 14,
+      "type": "EmptyLatentImage",
+      "pos": [
+        550.5,
+        489.01666259765625
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            15
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 16,
+      "type": "VAEDecode",
+      "pos": [
+        1305.5,
+        642.5166625976562
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 18
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 20,
+      "type": "VAEDecode",
+      "pos": [
+        2118.961181640625,
+        492.1821594238281
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 26
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            28
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 18,
+      "type": "LatentUpscaleBy",
+      "pos": [
+        1339.5,
+        435.51666259765625
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            22
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LatentUpscaleBy"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        2
+      ]
+    },
+    {
+      "id": 15,
+      "type": "KSampler",
+      "pos": [
+        952.5,
+        432.51666259765625
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 14
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 17
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 16
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 15
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 29,
+          "widget": {
+            "name": "seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            18,
+            21
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        766953909753907,
+        "randomize",
+        15,
+        8,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 12,
+      "type": "CLIPTextEncode",
+      "pos": [
+        483,
+        649.5166625976562
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            16,
+            24
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Negative)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "a bag of noodles"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 17,
+      "type": "PreviewImage",
+      "pos": [
+        1752.960205078125,
+        770.7968139648438
+      ],
+      "size": [
+        396.45550537109375,
+        412.7270202636719
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 20
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        47.5,
+        429.01666259765625
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            14,
+            25
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            11
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            19,
+            27
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "sdxl/sd_xl_refiner_1.0.safetensors"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "CLIPTextEncode",
+      "pos": [
+        475.5,
+        222.51666259765625
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            17,
+            23
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A weathered wooden crate filled with an assortment of smooth, colorful pebbles and rocks sits on a pristine sandy beach. The crate is partially buried in the fine, golden sand, with some grains spilling over its edges. Surrounding the box are scattered seashells and driftwood. In the background, gentle waves lap at the shoreline, and a clear blue sky meets the horizon. The scene is bathed in warm, late afternoon sunlight, casting long shadows and highlighting the textures of the rocks and sand.\"\n\nThis updated prompt provides more specific details about the composition, setting, and atmosphere, which should result in a more vivid and engaging image"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 19,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        1745.5,
+        377.01666259765625
+      ],
+      "size": [
+        315,
+        334
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 25
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 23
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 24
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 22
+        },
+        {
+          "name": "noise_seed",
+          "type": "INT",
+          "link": 30,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        766953909753907,
+        "randomize",
+        30,
+        8,
+        "euler",
+        "karras",
+        15,
+        10000,
+        "disable"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "PrimitiveNode",
+      "pos": [
+        1179.4234619140625,
+        142.11050415039062
+      ],
+      "size": [
+        319.8074951171875,
+        84.9281997680664
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            29,
+            30
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "seed"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        766953909753907,
+        "randomize"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "PreviewImage",
+      "pos": [
+        2159.74267578125,
+        771.5239868164062
+      ],
+      "size": [
+        437.60101318359375,
+        419.3105163574219
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 28
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    }
+  ],
+  "links": [
+    [
+      11,
+      10,
+      1,
+      13,
+      0,
+      "*"
+    ],
+    [
+      12,
+      13,
+      0,
+      11,
+      0,
+      "CLIP"
+    ],
+    [
+      13,
+      13,
+      0,
+      12,
+      0,
+      "CLIP"
+    ],
+    [
+      14,
+      10,
+      0,
+      15,
+      0,
+      "MODEL"
+    ],
+    [
+      15,
+      14,
+      0,
+      15,
+      3,
+      "LATENT"
+    ],
+    [
+      16,
+      12,
+      0,
+      15,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      17,
+      11,
+      0,
+      15,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      18,
+      15,
+      0,
+      16,
+      0,
+      "LATENT"
+    ],
+    [
+      19,
+      10,
+      2,
+      16,
+      1,
+      "VAE"
+    ],
+    [
+      20,
+      16,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      15,
+      0,
+      18,
+      0,
+      "LATENT"
+    ],
+    [
+      22,
+      18,
+      0,
+      19,
+      3,
+      "LATENT"
+    ],
+    [
+      23,
+      11,
+      0,
+      19,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      24,
+      12,
+      0,
+      19,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      25,
+      10,
+      0,
+      19,
+      0,
+      "MODEL"
+    ],
+    [
+      26,
+      19,
+      0,
+      20,
+      0,
+      "LATENT"
+    ],
+    [
+      27,
+      10,
+      2,
+      20,
+      1,
+      "VAE"
+    ],
+    [
+      28,
+      20,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      22,
+      0,
+      15,
+      4,
+      "INT"
+    ],
+    [
+      30,
+      22,
+      0,
+      19,
+      4,
+      "INT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6830134553650712,
+      "offset": [
+        -243.49755560973617,
+        -79.95944464169195
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
