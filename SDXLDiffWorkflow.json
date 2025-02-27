@@ -1,0 +1,1151 @@
+{
+  "last_node_id": 49,
+  "last_link_id": 71,
+  "nodes": [
+    {
+      "id": 34,
+      "type": "EmptyLatentImage",
+      "pos": [
+        202.5023956298828,
+        940.1422729492188
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            41
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 29,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        336.46771240234375,
+        181.73878479003906
+      ],
+      "size": [
+        400,
+        270
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 32
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 36,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 37,
+          "widget": {
+            "name": "text_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            52
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        4096,
+        4096,
+        0,
+        0,
+        1024,
+        1024,
+        "An ethereal scene depicting the origins of a lost civilization, a faint, glowing orb hovering above ancient stone monoliths, soft volumetric light revealing intricate symbols etched into the stones, deep blue and purple hues, a sense of ancient mystery and emerging knowledge, subtle surreal elements, cohesive cinematic lighting, 8k resolution.",
+        "An ethereal scene depicting the origins of a lost civilization, a faint, glowing orb hovering above ancient stone monoliths, soft volumetric light revealing intricate symbols etched into the stones, deep blue and purple hues, a sense of ancient mystery and emerging knowledge, subtle surreal elements, cohesive cinematic lighting, 8k resolution."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 32,
+      "type": "PrimitiveNode",
+      "pos": [
+        -332.0183410644531,
+        194.05899047851562
+      ],
+      "size": [
+        491.1072082519531,
+        164.57806396484375
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            36,
+            37,
+            56
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_g"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "An ethereal scene depicting the origins of a lost civilization, a faint, glowing orb hovering above ancient stone monoliths, soft volumetric light revealing intricate symbols etched into the stones, deep blue and purple hues, a sense of ancient mystery and emerging knowledge, subtle surreal elements, cohesive cinematic lighting, 8k resolution."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 31,
+      "type": "PrimitiveNode",
+      "pos": [
+        -231.60284423828125,
+        622.4325561523438
+      ],
+      "size": [
+        461.8251953125,
+        141.88450622558594
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            34,
+            35,
+            57
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_g"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "blurry images, blurry structures"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 44,
+      "type": "CLIPTextEncodeSDXLRefiner",
+      "pos": [
+        320.0117492675781,
+        -317.08990478515625
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 58
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 56,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            60
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXLRefiner"
+      },
+      "widgets_values": [
+        6,
+        1024,
+        1023,
+        "An ethereal scene depicting the origins of a lost civilization, a faint, glowing orb hovering above ancient stone monoliths, soft volumetric light revealing intricate symbols etched into the stones, deep blue and purple hues, a sense of ancient mystery and emerging knowledge, subtle surreal elements, cohesive cinematic lighting, 8k resolution."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 45,
+      "type": "CLIPTextEncodeSDXLRefiner",
+      "pos": [
+        324.27972412109375,
+        -62.460872650146484
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 59
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 57,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            61
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXLRefiner"
+      },
+      "widgets_values": [
+        2.5,
+        1024,
+        1024,
+        "blurry images, blurry structures"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 46,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        1267.1597900390625,
+        399.4143981933594
+      ],
+      "size": [
+        315,
+        334
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 62
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 60
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 61
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 63
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            64
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        4,
+        "fixed",
+        20,
+        8,
+        "dpmpp_sde_gpu",
+        "normal",
+        10,
+        10000,
+        "disable"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 40,
+      "type": "VAEDecode",
+      "pos": [
+        1687.8323974609375,
+        319.36468505859375
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 64
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 66
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            47
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 43,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -184.68434143066406,
+        -96.71910858154297
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            62
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            58,
+            59
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            66
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "sdxl/sd_xl_base_1.0.safetensors"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 10,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -78.4125747680664,
+        425.3569641113281
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            51
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            32,
+            33
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            49,
+            67
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "sdxl/sd_xl_base_1.0.safetensors"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 47,
+      "type": "VAEDecode",
+      "pos": [
+        1169.92138671875,
+        1000.60009765625
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 65
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 67
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            68
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 42,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        779.0059814453125,
+        496.1692810058594
+      ],
+      "size": [
+        315,
+        334
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 51
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 52
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 53
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            63,
+            65
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        10,
+        "fixed",
+        10,
+        8,
+        "dpmpp_sde_gpu",
+        "normal",
+        0,
+        10000,
+        "enable"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 48,
+      "type": "PreviewImage",
+      "pos": [
+        1011.798095703125,
+        1133.1007080078125
+      ],
+      "size": [
+        946.4423217773438,
+        961.5599365234375
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 68
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 41,
+      "type": "SaveImage",
+      "pos": [
+        1969.3406982421875,
+        1136.8521728515625
+      ],
+      "size": [
+        906.554931640625,
+        955.1931762695312
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 47
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 37,
+      "type": "VAEEncode",
+      "pos": [
+        377.50128173828125,
+        1244.86865234375
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 71
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 49
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            69
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 36,
+      "type": "LoadImage",
+      "pos": [
+        -166.4508056640625,
+        1126.08251953125
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            70
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Screenshot 2025-02-27 at 10.38.32 AM.png",
+        "image"
+      ]
+    },
+    {
+      "id": 49,
+      "type": "DF_Image_scale_to_side",
+      "pos": [
+        175.8029327392578,
+        1405.6181640625
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 70
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            71
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DF_Image_scale_to_side"
+      },
+      "widgets_values": [
+        1024,
+        "Longest",
+        "nearest-exact",
+        "disabled"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "ImpactSwitch",
+      "pos": [
+        599.2732543945312,
+        951.855224609375
+      ],
+      "size": [
+        210,
+        122
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input1",
+          "type": "LATENT",
+          "link": 41,
+          "shape": 7
+        },
+        {
+          "name": "input2",
+          "type": "LATENT",
+          "link": 69
+        },
+        {
+          "name": "input3",
+          "type": "LATENT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            54
+          ],
+          "slot_index": 0,
+          "label": "LATENT"
+        },
+        {
+          "name": "selected_label",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "selected_index",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactSwitch"
+      },
+      "widgets_values": [
+        2,
+        false
+      ]
+    },
+    {
+      "id": 30,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        329.7548522949219,
+        587.9022216796875
+      ],
+      "size": [
+        400,
+        290
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 33
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 34,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 35,
+          "widget": {
+            "name": "text_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            53
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        4096,
+        4096,
+        0,
+        0,
+        1024,
+        1024,
+        "blurry images, blurry structures",
+        "blurry images, blurry structures"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    }
+  ],
+  "links": [
+    [
+      32,
+      10,
+      1,
+      29,
+      0,
+      "CLIP"
+    ],
+    [
+      33,
+      10,
+      1,
+      30,
+      0,
+      "CLIP"
+    ],
+    [
+      34,
+      31,
+      0,
+      30,
+      1,
+      "STRING"
+    ],
+    [
+      35,
+      31,
+      0,
+      30,
+      2,
+      "STRING"
+    ],
+    [
+      36,
+      32,
+      0,
+      29,
+      1,
+      "STRING"
+    ],
+    [
+      37,
+      32,
+      0,
+      29,
+      2,
+      "STRING"
+    ],
+    [
+      41,
+      34,
+      0,
+      35,
+      0,
+      "*"
+    ],
+    [
+      47,
+      40,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      49,
+      10,
+      2,
+      37,
+      1,
+      "VAE"
+    ],
+    [
+      51,
+      10,
+      0,
+      42,
+      0,
+      "MODEL"
+    ],
+    [
+      52,
+      29,
+      0,
+      42,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      53,
+      30,
+      0,
+      42,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      54,
+      35,
+      0,
+      42,
+      3,
+      "LATENT"
+    ],
+    [
+      56,
+      32,
+      0,
+      44,
+      1,
+      "STRING"
+    ],
+    [
+      57,
+      31,
+      0,
+      45,
+      1,
+      "STRING"
+    ],
+    [
+      58,
+      43,
+      1,
+      44,
+      0,
+      "CLIP"
+    ],
+    [
+      59,
+      43,
+      1,
+      45,
+      0,
+      "CLIP"
+    ],
+    [
+      60,
+      44,
+      0,
+      46,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      61,
+      45,
+      0,
+      46,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      62,
+      43,
+      0,
+      46,
+      0,
+      "MODEL"
+    ],
+    [
+      63,
+      42,
+      0,
+      46,
+      3,
+      "LATENT"
+    ],
+    [
+      64,
+      46,
+      0,
+      40,
+      0,
+      "LATENT"
+    ],
+    [
+      65,
+      42,
+      0,
+      47,
+      0,
+      "LATENT"
+    ],
+    [
+      66,
+      43,
+      2,
+      40,
+      1,
+      "VAE"
+    ],
+    [
+      67,
+      10,
+      2,
+      47,
+      1,
+      "VAE"
+    ],
+    [
+      68,
+      47,
+      0,
+      48,
+      0,
+      "IMAGE"
+    ],
+    [
+      69,
+      37,
+      0,
+      35,
+      1,
+      "LATENT"
+    ],
+    [
+      70,
+      36,
+      0,
+      49,
+      0,
+      "IMAGE"
+    ],
+    [
+      71,
+      49,
+      0,
+      37,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5806258829320865,
+      "offset": [
+        345.05870416155676,
+        172.49942781256536
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
